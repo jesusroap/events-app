@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row align-items-start">
+        <div class="col">
+            <form #formEvent="ngForm" (ngSubmit)="submit()">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Nombre Evento</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    name="name"
+                    [(ngModel)]="form.name"
+                    #name="ngModel">
+                </div>
+                <div class="mb-3">
+                  <label for="date" class="form-label">Fecha</label>
+                  <input
+                    type="datetime-local"
+                    class="form-control"
+                    id="date"
+                    name="date"
+                    [(ngModel)]="form.date"
+                    #date="ngModel">
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+              </form>
+        </div>
+    </div>
+</div>
+
+
