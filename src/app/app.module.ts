@@ -1,4 +1,4 @@
-import { LOCALE_ID, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,9 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    AdminComponent,
-    EventDetailComponent,
-    EventsComponent
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -23,9 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [
-    { provide: LOCALE_ID, useValue: 'es-CO' }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
