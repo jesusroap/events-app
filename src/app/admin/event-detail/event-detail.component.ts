@@ -1,8 +1,6 @@
-import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../services/admin.service';
 import { ActivatedRoute } from '@angular/router';
-import { DatePipe, formatDate } from '@angular/common';
-import * as moment from 'moment';
 
 @Component({
   selector: 'app-event-detail',
@@ -12,12 +10,11 @@ import * as moment from 'moment';
 export class EventDetailComponent implements OnInit {
 
   form: EventDTO = new EventDTO();
-  id: string | null = "";
+  id: string = "";
 
   constructor(
     private adminService: AdminService,
-    private route: ActivatedRoute,
-    @Inject(LOCALE_ID) private locale: string
+    private route: ActivatedRoute
   ) {
     route.paramMap.subscribe(params => {
       this.id = params.get('id') ?? "0";
@@ -27,7 +24,6 @@ export class EventDetailComponent implements OnInit {
   ngOnInit(): void {
     this.adminService.getEvent(this.id).subscribe(resp => {
       this.form = resp;
-      this.form.date = moment(resp.date).locale(this.locale).format("yyyy-MM-DDThh:mm");
     })
   }
 

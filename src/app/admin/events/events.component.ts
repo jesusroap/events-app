@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../services/admin.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-events',
@@ -8,7 +9,7 @@ import { AdminService } from '../services/admin.service';
 })
 export class EventsComponent implements OnInit {
 
-  list: any;
+  list: any[] = [];
 
   constructor(
     private adminService: AdminService
@@ -17,7 +18,9 @@ export class EventsComponent implements OnInit {
   ngOnInit(): void {
     this.adminService.getEvents().subscribe(resp => {
       this.list = resp
-      console.log(this.list)
+      this.list.forEach(element => {
+        element.date = moment(element.date).format('lll')
+      });
     })
   }
 
