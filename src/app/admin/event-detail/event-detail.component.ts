@@ -1,8 +1,8 @@
 import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
 import { AdminService } from '../services/admin.service';
 import { ActivatedRoute } from '@angular/router';
-import { DatePipe, formatDate } from '@angular/common';
 import * as moment from 'moment';
+import { EventDTO } from '../models/eventDTO.model';
 
 @Component({
   selector: 'app-event-detail',
@@ -25,6 +25,10 @@ export class EventDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getEvent()
+  }
+
+  getEvent() {
     this.adminService.getEvent(this.id).subscribe(resp => {
       this.form = resp;
       this.form.date = moment(resp.date).locale(this.locale).format("yyyy-MM-DDThh:mm");
@@ -32,19 +36,11 @@ export class EventDetailComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.form)
+    this.adminService.saveEvent(this.form).subscribe(resp => {
+      alert(resp.message)
+
+      this.getEvent()
+    })
   }
 
-}
-
-class EventDTO {
-  id: number;
-  name: string;
-  date: string | null;
-
-  constructor() {
-    this.id = 0;
-    this.name = "";
-    this.date = ""
-  }
 }

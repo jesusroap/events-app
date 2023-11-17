@@ -15,9 +15,20 @@ export class EventsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getEvents()
+  }
+
+  getEvents() {
     this.adminService.getEvents().subscribe(resp => {
       this.list = resp
-      console.log(this.list)
+    })
+  }
+
+  deleteEvent(id: number) {
+    this.adminService.deleteEvent(id).subscribe((resp: any) => {
+      alert(resp.message)
+
+      this.getEvents()
     })
   }
 
