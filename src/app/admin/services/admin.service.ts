@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EventDTO } from '../models/eventDTO.model';
+import { UserDTO } from '../models/userDTO.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,10 +23,25 @@ export class AdminService {
   }
 
   saveEvent(event : EventDTO) {
-    return this.http.post<any>(`${this.url}/events/save`, event);
+    return this.http.post<any>(`${this.url}/admin/save`, event);
+  }
+
+  updateEvent(event : EventDTO) {
+    return this.http.put<any>(`${this.url}/admin/edit`, event);
   }
 
   deleteEvent(id: number) {
-    return this.http.delete<any>(`${this.url}/events/delete/${id}`)
+    return this.http.delete<any>(`${this.url}/admin/delete/${id}`)
+  }
+
+  login(user: UserDTO) {
+    return this.http.post<any>(`${this.url}/admin/login`, user)
+  }
+
+  uploadFile(file: File) {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    return this.http.post<any>(`${this.url}/admin/file_upload`, formData);
   }
 }

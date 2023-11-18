@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row align-items-start">
+        <div class="col mb-4 d-flex justify-content-center" *ngFor="let item of list">
+            <div class="card" style="width: 18rem;">
+                <div style="height: 170px; overflow-y: hidden;">
+                    <img src="../../../assets/images/{{ item.picture }}" class="card-img-top" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{ item.name }}</h5>
+                  <p class="card-text">{{ item.date }}</p>
+                  <a href="#" class="btn btn-primary">Ver más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
