@@ -36,7 +36,8 @@ export class LoginComponent implements OnInit {
     this.adminService.login(this.user).subscribe(resp => {
       alert(resp.message)
       if (resp.success) {
-        this.router.navigateByUrl("/admin/events")
+        this.adminService.setSession(resp.success)
+        this.router.navigateByUrl("/admin/dash/events")
       }
     })
   }

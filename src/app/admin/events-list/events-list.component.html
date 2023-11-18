@@ -1,3 +1,7 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Events</h1>
+</div>
+
 <div class="container">
   <table class="table">
     <thead>
@@ -16,12 +20,12 @@
         <td>{{item.location}}</td>
         <td>{{item.date}}</td>
         <td>
-          <a type="button" class="btn btn-primary" [routerLink]="'/admin/detail/' + item.id">Edit</a>
+          <a type="button" class="btn btn-primary" [routerLink]="'/admin/dash/detail/' + item.id">Edit</a>
           <button type="button" class="btn btn-danger mx-2" (click)="deleteEvent(item.id)">Delete</button>
         </td>
       </tr>
     </tbody>
 </table>
 
-<a type="button" class="btn btn-warning" [routerLink]="'/admin/detail/' + 0">Crear Evento</a>
+<a type="button" class="btn btn-warning" [routerLink]="'/admin/dash/detail/' + 0">Crear Evento</a>
 </div>

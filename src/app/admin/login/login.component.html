@@ -1,7 +1,8 @@
-<div class="container">
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
     <div class="row align-items-start">
         <div class="col">
-            <form #formValid class="needs-validation" #loginForm="ngForm" (ngSubmit)="login($event)" novalidate>
+            <h2 class="mb-4">Iniciar Sesión</h2>
+            <form #formValid class="needs-validation" style="width: 300px;" #loginForm="ngForm" (ngSubmit)="login($event)" novalidate>
                 <div class="mb-3">
                   <label for="email" class="form-label">Correo</label>
                   <input

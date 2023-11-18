@@ -1,6 +1,5 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar bg-body-tertiary">
     <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <form class="d-flex" #loginForm="ngForm" (ngSubmit)="filterEvents()">
           <input
             class="form-control me-2"
@@ -20,7 +19,6 @@
             #date="ngModel">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
-      </div>
     </div>
 </nav>
 
@@ -34,6 +32,7 @@
                 <div class="card-body">
                   <h5 class="card-title">{{ item.name }}</h5>
                   <p class="card-text">{{ item.date }}</p>
+                  <p class="card-text text-secondary">{{ item.location }}</p>
                   <a href="#" class="btn btn-primary">Ver más</a>
                 </div>
             </div>

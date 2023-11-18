@@ -49,4 +49,24 @@ export class AdminService {
   filterEvents(filter: FilterDTO) {
     return this.http.post<any>(`${this.url}/events/filter`, filter);
   }
+
+  getSession() {
+    let datosString = localStorage.getItem("session");
+
+    if (datosString) {
+      let datos = JSON.parse(datosString);
+      return datos;
+    } else {
+      return null;
+    }
+  }
+
+  setSession(success: boolean) {
+    let data = JSON.stringify(success);
+    localStorage.setItem("session", data);
+  }
+
+  deleteSession() {
+    localStorage.removeItem("session");
+  }
 }
