@@ -3,6 +3,7 @@ import * as moment from 'moment';
 import { EventDTO } from 'src/app/admin/models/eventDTO.model';
 import { FilterDTO } from 'src/app/admin/models/filterDTO.model';
 import { AdminService } from 'src/app/admin/services/admin.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-events',
@@ -14,10 +15,13 @@ export class EventsComponent implements OnInit {
   list: EventDTO[] = [];
   listBackup: EventDTO[] = [];
   filterEvent: FilterDTO = new FilterDTO()
+  urlPictures: string = ""
 
   constructor(
     private adminService: AdminService
-  ) { }
+  ) {
+    this.urlPictures = environment.urlPictures
+  }
 
   ngOnInit(): void {
     this.getEvents()

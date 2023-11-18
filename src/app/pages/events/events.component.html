@@ -27,7 +27,7 @@
         <div class="col mb-4 d-flex justify-content-center" *ngFor="let item of list">
             <div class="card" style="width: 18rem;">
                 <div style="height: 170px; overflow-y: hidden;">
-                    <img src="../../../assets/images/{{ item.picture }}" class="card-img-top" alt="...">
+                    <img src="{{ urlPictures }}{{ item.picture }}" class="card-img-top" alt="...">
                 </div>
                 <div class="card-body">
                   <h5 class="card-title">{{ item.name }}</h5>

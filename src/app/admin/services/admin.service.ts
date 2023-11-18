@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { EventDTO } from '../models/eventDTO.model';
 import { UserDTO } from '../models/userDTO.model';
 import { FilterDTO } from '../models/filterDTO.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
 
-  private url: string = "http://localhost:8080"
+  private url: string = environment.urlBase
 
   constructor(
     private http: HttpClient
