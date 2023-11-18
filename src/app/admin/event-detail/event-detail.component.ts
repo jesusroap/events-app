@@ -81,6 +81,7 @@ export class EventDetailComponent implements OnInit {
       }
     } else {
       if(this.selectedFile) {
+        this.form.picture = this.selectedFile.name;
         this.adminService.uploadFile(this.selectedFile).subscribe(resp => {
           if (resp.success) {
             this.adminService.updateEvent(this.form).subscribe(resp => {

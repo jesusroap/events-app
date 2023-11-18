@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EventDTO } from '../models/eventDTO.model';
 import { UserDTO } from '../models/userDTO.model';
+import { FilterDTO } from '../models/filterDTO.model';
 
 @Injectable({
   providedIn: 'root'
@@ -43,5 +44,9 @@ export class AdminService {
     formData.append('file', file);
 
     return this.http.post<any>(`${this.url}/admin/file_upload`, formData);
+  }
+
+  filterEvents(filter: FilterDTO) {
+    return this.http.post<any>(`${this.url}/events/filter`, filter);
   }
 }
