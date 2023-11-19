@@ -6,11 +6,13 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { TemplateComponent } from './templates/template/template.component';
 import { LogoutComponent } from './logout/logout.component';
+import { AdminGuard } from '../guards/admin.guard';
 
 const routes: Routes = [
   {
     path: "",
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [AdminGuard]
   },
   {
     path: "logout",
