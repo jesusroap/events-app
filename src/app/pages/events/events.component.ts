@@ -16,6 +16,7 @@ export class EventsComponent implements OnInit {
   listBackup: EventDTO[] = [];
   filterEvent: FilterDTO = new FilterDTO()
   urlPictures: string = ""
+  event: EventDTO = new EventDTO()
 
   constructor(
     private adminService: AdminService
@@ -52,5 +53,11 @@ export class EventsComponent implements OnInit {
 
     return list
   }
+
+  showDetail(event: EventDTO) {
+    this.event = event
+  }
+
+
 
 }
